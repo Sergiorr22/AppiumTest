@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import starter.questions.LoggedInQuestions;
 import starter.tasks.Login;
-import starter.tasks.NavigateTo;
+import starter.tasks.NavigateToLogin;
 
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
@@ -33,7 +33,7 @@ public class LogInStepDefinitions {
     @Given("Sergio ingresa al login")
     public void ingresarLogin() {
         theActorCalled("Sergio").attemptsTo(
-                new NavigateTo());
+                new NavigateToLogin());
     }
 
     @When("ingresa las credenciales")
