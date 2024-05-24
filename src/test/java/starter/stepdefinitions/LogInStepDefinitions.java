@@ -2,6 +2,10 @@ package starter.stepdefinitions;
 
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import starter.task.Login;
+import starter.task.NavigateTo;
+
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
@@ -9,6 +13,7 @@ import net.thucydides.core.annotations.Managed;
 import org.openqa.selenium.WebDriver;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class LogInStepDefinitions {
 
@@ -22,9 +27,16 @@ public class LogInStepDefinitions {
     }
 
 
-    @Given("John Wick wants to create a new post")
-    public void john_want_to_create_a_new_post() {
-        theActorCalled("Jhon")
-                .can(BrowseTheWeb.with(hisMobileDevice));
+    @Given("Sergio ingresa al login")
+    public void ingresarLogin() {
+        theActorCalled("Sergio").attemptsTo(
+                new NavigateTo());
+    }
+
+    @When("ingresa las credenciales")
+    public void ingresarCredenciales(){
+        theActorInTheSpotlight().attemptsTo(
+                new Login()
+        );
     }
 }
